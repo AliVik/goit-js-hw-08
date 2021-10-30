@@ -31,7 +31,7 @@ function onImgClick(evt) {
 }
 
 
-new SimpleLightbox('.gallery a',
+const lightbox = new SimpleLightbox('.gallery a',
     {
         captionsData: "alt",
         captionPosition: 'bottom',
