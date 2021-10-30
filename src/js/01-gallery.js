@@ -7,19 +7,20 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
-console.log(galleryItems);
+
 const gallery = document.querySelector('.gallery');
 gallery.innerHTML = createMarkup(galleryItems);
 gallery.addEventListener('click', onImgClick);
 
+
 function createMarkup(items) {
     return items.map(({ preview, original, description }) => {
-        return `<li class="gallery__item"><a href="${original}">
+        return `<a href="${original}" class="gallery__item">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a></li>`
+</a>`
     }).join('');
 }
-
+console.log(gallery);
 
 function onImgClick(evt) {
     evt.preventDefault();
@@ -30,8 +31,7 @@ function onImgClick(evt) {
     
 }
 
-
-const lightbox = new SimpleLightbox('.gallery a',
+new SimpleLightbox('.gallery a',
     {
         captionsData: "alt",
         captionPosition: 'bottom',
@@ -39,3 +39,5 @@ const lightbox = new SimpleLightbox('.gallery a',
         focus: false,
         
     });
+
+  
